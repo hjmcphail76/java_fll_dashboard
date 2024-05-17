@@ -3,8 +3,8 @@ package com.java_fll_dashboard;
 import java.io.IOException;
 import javafx.fxml.FXML;
 
-public class ControllerApp {
-    public ControllerApp() {
+public class PrimaryController {
+    public PrimaryController() {
 
     }
 
