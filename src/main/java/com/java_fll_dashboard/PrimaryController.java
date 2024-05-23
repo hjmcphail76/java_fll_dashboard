@@ -10,8 +10,9 @@ public class PrimaryController {
 
     @FXML
     private void switchToSecondary() throws IOException {
-        Main.setRoot("secondary");
+        Main.setScene(Main.getControllerStage(), Main.getSecondaryScene());
     }
+
     @FXML
     private void testTrigger() throws IOException {
         System.out.println("EA Sports");

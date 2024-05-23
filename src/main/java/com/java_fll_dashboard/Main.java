@@ -11,22 +11,51 @@ import java.io.IOException;
 
 public class Main extends Application {
 
-    private static Scene window;
+    private static Scene primaryScene;
+    private static Scene secondaryScene;
 
+    private static Stage controllerStage;
+    private static Stage displayStage; 
+    
     @Override
-    public void start(Stage stage) throws IOException {
-        window = new Scene(loadFXML("primary"), 640, 480);
-        stage.setScene(window);
-        stage.show();
+    public void start(Stage defaultStage) throws IOException {
+        primaryScene = createScene("primary");
+        secondaryScene = createScene("secondary");
+
+        controllerStage = new Stage();
+        controllerStage.setScene(primaryScene);
+        controllerStage.show();
+        
+        displayStage = new Stage();
+        //displayStage.setScene();  TODO:
+        displayStage.show();
     }
 
-    static void setRoot(String fxml) throws IOException {
-        window.setRoot(loadFXML(fxml));
+    static Stage getControllerStage(){
+        return controllerStage;
+    }
+    static Stage getDisplayStage(){
+        return displayStage;
+    }
+    static Scene getPrimaryScene(){
+        return primaryScene;
+    }
+    static Scene getSecondaryScene(){
+        return secondaryScene;
+    }
+
+    static Scene createScene(String fxml) throws IOException{
+        return new Scene(loadFXML(fxml), 640, 480);
+    }
+
+    static void setScene(Stage stage, Scene scene) throws IOException {
+        stage.setScene(scene);
     }
 
     private static Parent loadFXML(String fxml) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource(fxml + ".fxml"));
         return fxmlLoader.load();
+        
     }
 
     public static void main(String[] args) {
