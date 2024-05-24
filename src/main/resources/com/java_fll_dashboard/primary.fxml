@@ -10,9 +10,10 @@
    <children>
       <Label text="Primary View" />
       
-      <Button fx:id="PrimaryButton" text="Switch to Secondary View" onAction="#switchToSecondary"/>
+      
       <Slider fx:id="mySlider" min="0" max="100" value="50"/>
       <Button fx:id="EAsports" text="Print EA sports" onAction="#testTrigger"/>
+      
    </children>
    <padding>
       <Insets bottom="22.0" left="20.0" right="20.0" top="20.0" />

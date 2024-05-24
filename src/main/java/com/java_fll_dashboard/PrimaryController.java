@@ -10,7 +10,7 @@ public class PrimaryController {
 
     @FXML
     private void switchToSecondary() throws IOException {
-        Main.setScene(Main.getControllerStage(), Main.getSecondaryScene());
+        //Main.setScene(Main.getControllerStage(), Main.getSecondaryScene());
     }
 
     @FXML
