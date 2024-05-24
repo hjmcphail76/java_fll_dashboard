@@ -29,6 +29,7 @@ public class Main extends Application {
         displayStage = new Stage();
         //displayStage.setScene();  TODO:
         displayStage.show();
+        
     }
 
     static Stage getControllerStage(){
