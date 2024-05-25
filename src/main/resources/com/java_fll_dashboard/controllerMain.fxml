@@ -22,11 +22,12 @@
             <Button fx:id="EAsports" layoutX="22.0" layoutY="59.0" onAction="#toggleDisplay" prefHeight="56.0" prefWidth="175.0" text="Toggle Display Window" />
             <Slider fx:id="minSlider" layoutX="44.0" layoutY="189.0" minHeight="-Infinity" minWidth="-Infinity" orientation="VERTICAL" prefHeight="96.0" prefWidth="44.0" scaleX="2.0" scaleY="2.0" />
             <Slider fx:id="maxSlider" layoutX="96.0" layoutY="189.0" minHeight="-Infinity" minWidth="-Infinity" orientation="VERTICAL" prefHeight="96.0" prefWidth="28.0" scaleX="2.0" scaleY="2.0" />
-            <ColorPicker layoutX="214.0" layoutY="59.0" onAction="#testTrigger">
+            <ColorPicker fx:id="backgroundColorPicker" layoutX="215.0" layoutY="59.0" prefHeight="38.0" prefWidth="88.0">
                <value>
                   <Color />
                </value>
             </ColorPicker>
+            <Button fx:id="EAsports1" layoutX="14.0" layoutY="368.0" onAction="#testTrigger" prefHeight="47.0" prefWidth="118.0" text="Testing Button" />
          </children>
       </AnchorPane>
       

@@ -2,19 +2,19 @@ package com.java_fll_dashboard;
 
 import java.io.IOException;
 import javafx.fxml.FXML;
+import javafx.scene.control.ColorPicker;
 import javafx.scene.control.Slider;
 
-import com.java_fll_dashboard.GUI;
-
 public class ControllerFXMLCommands {
+
     @FXML
     private Slider minSlider;
+    @FXML
     private Slider maxSlider;
+    @FXML
+    private ColorPicker backgroundColorPicker;
 
-    public ControllerFXMLCommands() {
-
-    }
-
+    // Functions to call from the window directly (buttons):
     @FXML
     private void toggleDisplay() {
         if (GUI.displayStage.showingProperty().get()) {
@@ -37,5 +37,9 @@ public class ControllerFXMLCommands {
 
     public double getMaxSliderValue() {
         return maxSlider.valueProperty().get();
+    }
+
+    public String getColorPickerValue() {
+        return backgroundColorPicker.getValue().toString();
     }
 }
