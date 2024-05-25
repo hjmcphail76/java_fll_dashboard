@@ -6,13 +6,13 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Slider?>
 
-<VBox alignment="CENTER" spacing="20.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.java_fll_dashboard.PrimaryController">
+<VBox alignment="CENTER" spacing="20.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.java_fll_dashboard.ControllerFXMLCommands">
    <children>
       <Label text="Primary View" />
       
       
       <Slider fx:id="mySlider" min="0" max="100" value="50"/>
-      <Button fx:id="EAsports" text="Print EA sports" onAction="#testTrigger"/>
+      <Button fx:id="EAsports" text="Toggle Display Window" onAction="#hideDisplayWindow"/>
       
    </children>
    <padding>

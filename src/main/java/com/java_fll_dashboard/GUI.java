@@ -11,21 +11,21 @@ import java.io.IOException;
 
 public class GUI extends Application {
 
-    private static Scene primaryScene;
-    private static Scene secondaryScene;
+    public static Scene controllerScene;
+    public static Scene displayScene;
 
-    private static Stage controllerStage;
-    private static Stage displayStage; 
+    public static Stage controllerStage;
+    public static Stage displayStage; 
     
     @Override
     public void start(Stage defaultStage) throws IOException {
 
         
-        primaryScene = createScene("primary");
-        secondaryScene = createScene("secondary");
+        controllerScene = createScene("controllerMain");
+        displayScene = createScene("displayMain");
 
         controllerStage = new Stage();
-        controllerStage.setScene(primaryScene);
+        controllerStage.setScene(controllerScene);
         controllerStage.show();
         
         displayStage = new Stage();
@@ -34,24 +34,11 @@ public class GUI extends Application {
         
     }
 
-    static Stage getControllerStage(){
-        return controllerStage;
-    }
-    static Stage getDisplayStage(){
-        return displayStage;
-    }
-    static Scene getPrimaryScene(){
-        return primaryScene;
-    }
-    static Scene getSecondaryScene(){
-        return secondaryScene;
-    }
-
-    static Scene createScene(String fxml) throws IOException{
+    private static Scene createScene(String fxml) throws IOException{
         return new Scene(loadFXML(fxml), 640, 480);
     }
 
-    static void setScene(Stage stage, Scene scene) throws IOException {
+    public static void setScene(Stage stage, Scene scene) throws IOException {
         stage.setScene(scene);
     }
 
