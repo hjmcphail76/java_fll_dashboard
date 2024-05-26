@@ -1,10 +1,12 @@
 package com.java_fll_dashboard;
 
 import javafx.application.Application;
+import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import javafx.stage.WindowEvent;
 
 import java.io.IOException;
 
@@ -27,10 +29,20 @@ public class GUI extends Application {
         controllerStage.setScene(controllerScene);
         controllerStage.show();
         controllerStage.setResizable(isResizeable);
+        controllerStage.setOnCloseRequest(event -> {
+            TimerModule.stop();
+            controllerStage.close();
+            displayStage.close();
+        });
 
         displayStage = new Stage();
         displayStage.setScene(displayScene);
         displayStage.show();
+        displayStage.setOnCloseRequest(event -> {
+            TimerModule.stop();
+            controllerStage.close();
+            displayStage.close();
+        });
 
     }
 

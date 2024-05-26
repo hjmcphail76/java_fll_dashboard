@@ -4,9 +4,9 @@ import com.java_fll_dashboard.ControllerFXMLCommands;
 
 import javafx.fxml.FXML;
 
-public class audio {
+public class AudioModule {
     // Add audio controller for the system later.
-    public audio() {
+    public AudioModule() {
 
     }
 

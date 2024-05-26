@@ -4,6 +4,9 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ColorPicker?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.Slider?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
@@ -12,6 +15,25 @@
 
 <VBox alignment="CENTER" minHeight="-Infinity" minWidth="-Infinity" prefHeight="486.0" prefWidth="581.0" spacing="20.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.java_fll_dashboard.ControllerFXMLCommands">
    <children>
+      <MenuBar>
+        <menus>
+          <Menu mnemonicParsing="false" text="File">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Close" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Edit">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Delete" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Help">
+            <items>
+              <MenuItem mnemonicParsing="false" text="About" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
       <AnchorPane prefHeight="458.0" prefWidth="571.0">
          <children>
             <Label alignment="CENTER" contentDisplay="CENTER" layoutX="138.0" text="Controller Functions" textAlignment="JUSTIFY" AnchorPane.topAnchor="0.0">
@@ -19,7 +41,7 @@
                   <Font name="System Bold Italic" size="32.0" />
                </font>
             </Label>
-            <Button fx:id="EAsports" layoutX="50.0" layoutY="77.0" onAction="#toggleDisplay" prefHeight="56.0" prefWidth="175.0" text="Toggle Display Window" />
+            <Button fx:id="ToggleWindowButton" layoutX="50.0" layoutY="77.0" onAction="#toggleDisplay" prefHeight="56.0" prefWidth="175.0" text="Toggle Display Window" />
             <Slider fx:id="minSlider" layoutX="44.0" layoutY="189.0" minHeight="-Infinity" minWidth="-Infinity" orientation="VERTICAL" prefHeight="96.0" prefWidth="44.0" scaleX="2.0" scaleY="2.0" />
             <Slider fx:id="maxSlider" layoutX="96.0" layoutY="189.0" minHeight="-Infinity" minWidth="-Infinity" orientation="VERTICAL" prefHeight="96.0" prefWidth="28.0" scaleX="2.0" scaleY="2.0" />
             <ColorPicker fx:id="backgroundColorPicker" layoutX="153.0" layoutY="373.0" prefHeight="38.0" prefWidth="88.0">
@@ -30,6 +52,7 @@
             <Button fx:id="EAsports1" layoutX="14.0" layoutY="368.0" onAction="#testTrigger" prefHeight="47.0" prefWidth="118.0" text="Testing Button" />
             <Button fx:id="FadeIn" layoutX="164.0" layoutY="180.0" mnemonicParsing="false" onAction="#fadeAudioIn" prefHeight="38.0" prefWidth="125.0" text="Fade Audio In" textAlignment="JUSTIFY" />
             <Button fx:id="fadeOut" layoutX="164.0" layoutY="226.0" mnemonicParsing="false" onAction="#fadeAudioOut" prefHeight="38.0" prefWidth="125.0" text="Fade Audio Out" textAlignment="JUSTIFY" />
+            <Button fx:id="StartTimerButton" layoutX="279.0" layoutY="77.0" onAction="#startTimer" prefHeight="56.0" prefWidth="175.0" text="Start Timer" />
          </children>
       </AnchorPane>
       

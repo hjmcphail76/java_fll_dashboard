@@ -7,7 +7,7 @@ import javafx.scene.control.ColorPicker;
 import javafx.scene.control.Slider;
 
 public class ControllerFXMLCommands {
-
+    private TimerModule timerModule;
     @FXML
     private Slider minSlider;
     @FXML
@@ -16,6 +16,7 @@ public class ControllerFXMLCommands {
     private ColorPicker backgroundColorPicker;
 
     private static ControllerFXMLCommands instance;
+    private Thread timerThread;
 
     public ControllerFXMLCommands() {
         instance = this;
@@ -52,12 +53,22 @@ public class ControllerFXMLCommands {
 
     @FXML
     private void fadeAudioIn() throws IOException {
-        audio.fadeAudioIn();
+        AudioModule.fadeAudioIn();
     }
 
     @FXML
     private void fadeAudioOut() throws IOException {
-        audio.fadeAudioOut();
+        AudioModule.fadeAudioOut();
+    }
+
+    @FXML
+    private void startTimer() {
+        if (timerModule != null) {
+            timerModule.stop(); // Stop the current timer
+        }
+        TimerModule.restart(); // Reset the timer
+        timerModule = new TimerModule();
+        timerModule.start();
     }
 
     // Retrive values from elements on the "Controller" window:

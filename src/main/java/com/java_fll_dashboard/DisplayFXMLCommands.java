@@ -1,12 +1,38 @@
 package com.java_fll_dashboard;
 
-import java.io.IOException;
 import javafx.fxml.FXML;
+import javafx.scene.text.Text;
 
 public class DisplayFXMLCommands {
+    private static DisplayFXMLCommands instance;
+
+    @FXML
+    private Text timerText;
 
     public DisplayFXMLCommands() {
-        //System.out.println("I made it!");
+        instance = this;
+    }
+
+    public static DisplayFXMLCommands getInstance() {
+        return instance;
+
+    }
+
+    @FXML
+    public void initialize() {
+        // Init of these items bc of the goofy JavaFX system of setting things up.
+        timerText.setText("2:30");
+
+    }
+
+    public void setTimerText(int time) {
+
+        if (time % 60 < 10) {
+            timerText.setText(Integer.toString(time / 60) + ":0" + Integer.toString(time % 60));
+        } else {
+            timerText.setText(Integer.toString(time / 60) + ":" + Integer.toString(time % 60));
+        }
+
     }
 
 }
