@@ -1,6 +1,7 @@
 package com.java_fll_dashboard;
 
 import java.io.IOException;
+
 import javafx.fxml.FXML;
 import javafx.scene.control.ColorPicker;
 import javafx.scene.control.Slider;
@@ -13,6 +14,26 @@ public class ControllerFXMLCommands {
     private Slider maxSlider;
     @FXML
     private ColorPicker backgroundColorPicker;
+
+    private static ControllerFXMLCommands instance;
+
+    public ControllerFXMLCommands() {
+        instance = this;
+    }
+
+    @FXML
+    public void initialize() {
+        // Init of these items bc of the goofy JavaFX system of setting things up.
+        minSlider.setMin(0);
+        minSlider.setMax(100);
+        minSlider.setValue(50);
+
+        maxSlider.setMin(0);
+        maxSlider.setMax(100);
+        maxSlider.setValue(50);
+
+        backgroundColorPicker.setValue(javafx.scene.paint.Color.WHITE);
+    }
 
     // Functions to call from the window directly (buttons):
     @FXML
@@ -29,17 +50,41 @@ public class ControllerFXMLCommands {
         System.out.println("UK Sports");
     }
 
+    @FXML
+    private void fadeAudioIn() throws IOException {
+        audio.fadeAudioIn();
+    }
+
+    @FXML
+    private void fadeAudioOut() throws IOException {
+        audio.fadeAudioOut();
+    }
+
     // Retrive values from elements on the "Controller" window:
 
+    public static ControllerFXMLCommands getInstance() {
+        return instance;
+    }
+
     public double getMinSliderValue() {
-        return minSlider.valueProperty().get();
+        if (minSlider != null) {
+            return minSlider.getValue();
+        }
+        return 0;
     }
 
     public double getMaxSliderValue() {
-        return maxSlider.valueProperty().get();
+        if (maxSlider != null) {
+            return maxSlider.getValue();
+        }
+        return 0;
     }
 
     public String getColorPickerValue() {
-        return backgroundColorPicker.getValue().toString();
+        if (backgroundColorPicker != null) {
+            return backgroundColorPicker.getValue().toString();
+        }
+        return "#FFFFFF";
     }
+
 }
