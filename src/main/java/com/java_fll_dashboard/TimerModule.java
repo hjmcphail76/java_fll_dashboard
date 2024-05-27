@@ -1,6 +1,7 @@
 package com.java_fll_dashboard;
 
 import javafx.application.Platform;
+import javafx.scene.control.TreeCell;
 
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
@@ -36,6 +37,13 @@ public class TimerModule {
     public void resetAndStartTimer() {
         resetTime();
         timer();
+    }
+
+    public static boolean schedulerCreated() {
+        if (scheduler == null) {
+            return false;
+        }
+        return true;
     }
 
     public static void stopScheduler() {
