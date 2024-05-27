@@ -30,7 +30,7 @@ public class GUI extends Application {
         controllerStage.show();
         controllerStage.setResizable(isResizeable);
         controllerStage.setOnCloseRequest(event -> {
-            TimerModule.stop();
+            TimerModule.stopScheduler();
             controllerStage.close();
             displayStage.close();
         });
@@ -39,7 +39,7 @@ public class GUI extends Application {
         displayStage.setScene(displayScene);
         displayStage.show();
         displayStage.setOnCloseRequest(event -> {
-            TimerModule.stop();
+            TimerModule.stopScheduler();
             controllerStage.close();
             displayStage.close();
         });

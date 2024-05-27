@@ -8,15 +8,14 @@ import java.util.concurrent.TimeUnit;
 
 public class TimerModule {
     private static volatile int restartableTime = 0;
-    private static ScheduledExecutorService scheduler = Executors.newScheduledThreadPool(1);;
+    private static ScheduledExecutorService scheduler;
 
     public TimerModule() {
-        // scheduler = Executors.newScheduledThreadPool(1);
+        scheduler = Executors.newScheduledThreadPool(1);
     }
 
-    public static synchronized void restart() {
-        // System.out.println("Time reset to 150");
-        restartableTime = 151;
+    private static synchronized void resetTime() {
+        restartableTime = 151; // 2:31
     }
 
     private void timer() {
@@ -27,26 +26,19 @@ public class TimerModule {
                 seconds[0]--;
             } else {
                 Platform.runLater(() -> DisplayFXMLCommands.getInstance().setTimerText(0));
-                scheduler.shutdown();
-                System.out.println("Time's up!");
+                scheduler.shutdown(); // Loops until this gets called
             }
         };
 
-        scheduler.scheduleAtFixedRate(task, 0, 1, TimeUnit.SECONDS);
-
+        scheduler.scheduleAtFixedRate(task, 0, 1, TimeUnit.SECONDS); // Every 1 second, "task" is called.
     }
 
-    public static boolean isShutdown() {
-        return scheduler.isShutdown();
-    }
-
-    public void start() {
-        // System.out.println("Thread is running with initial time: " +
-        // restartableTime);
+    public void resetAndStartTimer() {
+        resetTime();
         timer();
     }
 
-    public static void stop() {
-        scheduler.shutdownNow(); // Stop the scheduler
+    public static void stopScheduler() {
+        scheduler.shutdownNow(); // Stop the scheduler by force.
     }
 }

@@ -20,6 +20,7 @@ public class ControllerFXMLCommands {
 
     public ControllerFXMLCommands() {
         instance = this;
+
     }
 
     @FXML
@@ -64,11 +65,11 @@ public class ControllerFXMLCommands {
     @FXML
     private void startTimer() {
         if (timerModule != null) {
-            timerModule.stop(); // Stop the current timer
+            TimerModule.stopScheduler(); // Stop the current timer
         }
-        TimerModule.restart(); // Reset the timer
         timerModule = new TimerModule();
-        timerModule.start();
+        timerModule.resetAndStartTimer();
+
     }
 
     // Retrive values from elements on the "Controller" window:

@@ -8,8 +8,8 @@ public class Main {
     public static void main(String[] args) {
         System.out.println("Starting program...");
 
-        ControllerFXMLCommands controllerFXMLCommands = new ControllerFXMLCommands();
-        DisplayFXMLCommands displayFXMLCommands = new DisplayFXMLCommands();
+        new ControllerFXMLCommands();
+        new DisplayFXMLCommands();
 
         // try {
         gui.mylaunch();
