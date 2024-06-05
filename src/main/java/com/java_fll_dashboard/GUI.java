@@ -17,7 +17,7 @@ public class GUI extends Application {
 
     public static Stage controllerStage;
     public static Stage displayStage;
-    private boolean isResizeable = false;
+    private final boolean isResizeable = false;
 
     @Override
     public void start(Stage defaultStage) throws IOException {
@@ -52,10 +52,6 @@ public class GUI extends Application {
 
     private static Scene createScene(String fxml) throws IOException {
         return new Scene(loadFXML(fxml), 640, 480);
-    }
-
-    public static void setScene(Stage stage, Scene scene) throws IOException {
-        stage.setScene(scene);
     }
 
     private static Parent loadFXML(String fxml) throws IOException {
