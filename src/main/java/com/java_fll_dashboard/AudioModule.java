@@ -1,20 +1,26 @@
 package com.java_fll_dashboard;
 
-import com.java_fll_dashboard.ControllerFXMLCommands;
+import net.bjoernpetersen.volctl.VolumeControl;
 
-import javafx.fxml.FXML;
+import java.io.IOException;
 
 public class AudioModule {
+    private static VolumeControl volumeControl;
+
     // Add audio controller for the system later.
-    public AudioModule() {
-
+    public AudioModule() throws IOException {
+        volumeControl = new VolumeControl();
     }
 
-    public static void fadeAudioOut() {
+    public void fadeAudioOut() {
+        System.out.println("Current volume: " + volumeControl.getVolume());
         System.out.println("Fading out to " + ControllerFXMLCommands.getInstance().getMinSliderValue());
+        volumeControl.setVolume(ControllerFXMLCommands.getInstance().getMinSliderValue());
     }
 
-    public static void fadeAudioIn() {
+    public void fadeAudioIn() {
+        System.out.println("Current volume: " + volumeControl.getVolume());
         System.out.println("Fading in to " + ControllerFXMLCommands.getInstance().getMaxSliderValue());
+        volumeControl.setVolume(ControllerFXMLCommands.getInstance().getMaxSliderValue());
     }
 }

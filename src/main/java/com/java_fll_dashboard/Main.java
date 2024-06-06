@@ -1,11 +1,11 @@
 package com.java_fll_dashboard;
 
-import com.java_fll_dashboard.TimerModule;
+import java.io.IOException;
 
 public class Main {
-    private static GUI gui = new GUI();
+    private static final GUI gui = new GUI();
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         System.out.println("Starting program...");
 
         new ControllerFXMLCommands();

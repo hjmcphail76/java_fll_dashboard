@@ -8,6 +8,7 @@ import javafx.scene.control.Slider;
 
 public class ControllerFXMLCommands {
     private TimerModule timerModule;
+    private final AudioModule audioModule = new AudioModule();
     @FXML
     private Slider minSlider;
     @FXML
@@ -16,11 +17,9 @@ public class ControllerFXMLCommands {
     private ColorPicker backgroundColorPicker;
 
     private static ControllerFXMLCommands instance;
-    private Thread timerThread;
 
-    public ControllerFXMLCommands() {
+    public ControllerFXMLCommands() throws IOException {
         instance = this;
-
     }
 
     @FXML
@@ -48,18 +47,18 @@ public class ControllerFXMLCommands {
     }
 
     @FXML
-    private void testTrigger() throws IOException {
+    private void testTrigger() {
         System.out.println("UK Sports");
     }
 
     @FXML
-    private void fadeAudioIn() throws IOException {
-        AudioModule.fadeAudioIn();
+    private void fadeAudioIn() {
+        audioModule.fadeAudioIn();
     }
 
     @FXML
-    private void fadeAudioOut() throws IOException {
-        AudioModule.fadeAudioOut();
+    private void fadeAudioOut() {
+        audioModule.fadeAudioOut();
     }
 
     @FXML
@@ -78,20 +77,21 @@ public class ControllerFXMLCommands {
         return instance;
     }
 
-    public double getMinSliderValue() {
+    public int getMinSliderValue() {
         if (minSlider != null) {
-            return minSlider.getValue();
+            return (int) minSlider.getValue();
         }
         return 0;
     }
 
-    public double getMaxSliderValue() {
+    public int getMaxSliderValue() {
         if (maxSlider != null) {
-            return maxSlider.getValue();
+            return (int) maxSlider.getValue();
         }
         return 0;
     }
 
+    @SuppressWarnings("unused")
     public String getColorPickerValue() {
         if (backgroundColorPicker != null) {
             return backgroundColorPicker.getValue().toString();
