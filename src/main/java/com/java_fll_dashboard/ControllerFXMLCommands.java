@@ -1,7 +1,5 @@
 package com.java_fll_dashboard;
 
-import java.io.IOException;
-
 import javafx.fxml.FXML;
 import javafx.scene.control.ColorPicker;
 import javafx.scene.control.Slider;
@@ -17,7 +15,7 @@ public class ControllerFXMLCommands {
 
     private static ControllerFXMLCommands instance;
 
-    public ControllerFXMLCommands() throws IOException {
+    public ControllerFXMLCommands() {
         instance = this;
     }
 
@@ -52,11 +50,17 @@ public class ControllerFXMLCommands {
 
     @FXML
     private void fadeAudioIn() {
+        if (AudioModule.schedulerActive()) {
+            AudioModule.stopScheduler();
+        }
         AudioModule.fadeAudioIn();
     }
 
     @FXML
     private void fadeAudioOut() {
+        if (AudioModule.schedulerActive()) {
+            AudioModule.stopScheduler();
+        }
         AudioModule.fadeAudioOut();
     }
 

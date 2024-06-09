@@ -1,11 +1,9 @@
 package com.java_fll_dashboard;
 
-import java.io.IOException;
-
 public class Main {
     private static final GUI gui = new GUI();
 
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) {
         System.out.println("Starting program...");
 
         new ControllerFXMLCommands();
