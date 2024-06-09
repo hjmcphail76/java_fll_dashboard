@@ -6,7 +6,7 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 
-public class TimerModule {
+public class  TimerModule {
     private static volatile int restartableTime = 0;
     private static ScheduledExecutorService scheduler;
 

@@ -17,10 +17,11 @@ public class GUI extends Application {
 
     public static Stage controllerStage;
     public static Stage displayStage;
-    private boolean isResizeable = false;
+    private boolean isResizeable;
 
     @Override
     public void start(Stage defaultStage) throws IOException {
+        isResizeable = false;
 
         controllerScene = createScene("controllerMain");
         displayScene = createScene("displayMain");
