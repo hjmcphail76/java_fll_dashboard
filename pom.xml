@@ -13,12 +13,17 @@
         <dependency>
             <groupId>org.openjfx</groupId>
             <artifactId>javafx-controls</artifactId>
-            <version>13</version>
+            <version>22</version>
         </dependency>
         <dependency>
             <groupId>org.openjfx</groupId>
             <artifactId>javafx-fxml</artifactId>
-            <version>13</version>
+            <version>22</version>
+        </dependency>
+        <dependency>
+            <groupId>com.github.bjoernpetersen</groupId>
+            <artifactId>volctl</artifactId>
+            <version>3.0.0</version>
         </dependency>
     </dependencies>
     <build>

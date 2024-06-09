@@ -1,12 +1,10 @@
 package com.java_fll_dashboard;
 
 import javafx.application.Application;
-import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import javafx.stage.WindowEvent;
 
 import java.io.IOException;
 
@@ -17,10 +15,11 @@ public class GUI extends Application {
 
     public static Stage controllerStage;
     public static Stage displayStage;
-    private final boolean isResizeable = false;
+    private boolean isResizeable;
 
     @Override
     public void start(Stage defaultStage) throws IOException {
+        isResizeable = false;
 
         controllerScene = createScene("controllerMain");
         displayScene = createScene("displayMain");
@@ -30,8 +29,11 @@ public class GUI extends Application {
         controllerStage.show();
         controllerStage.setResizable(isResizeable);
         controllerStage.setOnCloseRequest(event -> {
-            if (TimerModule.schedulerCreated()) {
+            if (TimerModule.schedulerActive()) {
                 TimerModule.stopScheduler();
+            }
+            if (AudioModule.schedulerActive()) {
+                AudioModule.stopScheduler();
             }
             controllerStage.close();
             displayStage.close();
@@ -41,8 +43,11 @@ public class GUI extends Application {
         displayStage.setScene(displayScene);
         displayStage.show();
         displayStage.setOnCloseRequest(event -> {
-            if (TimerModule.schedulerCreated()) {
+            if (TimerModule.schedulerActive()) {
                 TimerModule.stopScheduler();
+            }
+            if (AudioModule.schedulerActive()) {
+                AudioModule.stopScheduler();
             }
             controllerStage.close();
             displayStage.close();

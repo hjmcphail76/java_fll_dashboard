@@ -28,9 +28,9 @@ public class DisplayFXMLCommands {
     public void setTimerText(int time) {
 
         if (time % 60 < 10) {
-            timerText.setText(Integer.toString(time / 60) + ":0" + Integer.toString(time % 60));
+            timerText.setText(time / 60 + ":0" + time % 60);
         } else {
-            timerText.setText(Integer.toString(time / 60) + ":" + Integer.toString(time % 60));
+            timerText.setText(time / 60 + ":" + time % 60);
         }
 
     }
