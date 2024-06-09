@@ -8,7 +8,6 @@ import javafx.scene.control.Slider;
 
 public class ControllerFXMLCommands {
     private TimerModule timerModule;
-    private final AudioModule audioModule = new AudioModule();
     @FXML
     private Slider minSlider;
     @FXML
@@ -53,12 +52,12 @@ public class ControllerFXMLCommands {
 
     @FXML
     private void fadeAudioIn() {
-        audioModule.fadeAudioIn();
+        AudioModule.fadeAudioIn();
     }
 
     @FXML
     private void fadeAudioOut() {
-        audioModule.fadeAudioOut();
+        AudioModule.fadeAudioOut();
     }
 
     @FXML

@@ -38,7 +38,7 @@ public class  TimerModule {
         timer();
     }
 
-    public static boolean schedulerCreated() {
+    public static boolean schedulerActive() {
         return scheduler != null;
     }
 
