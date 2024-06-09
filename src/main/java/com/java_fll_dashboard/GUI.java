@@ -59,10 +59,6 @@ public class GUI extends Application {
         return new Scene(loadFXML(fxml), 640, 480);
     }
 
-    public static void setScene(Stage stage, Scene scene) throws IOException {
-        stage.setScene(scene);
-    }
-
     private static Parent loadFXML(String fxml) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource(fxml + ".fxml"));
         return fxmlLoader.load();
