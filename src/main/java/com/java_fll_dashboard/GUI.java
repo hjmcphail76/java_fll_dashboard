@@ -4,7 +4,9 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
+import org.w3c.dom.css.RGBColor;
 
 import java.io.IOException;
 
@@ -73,6 +75,9 @@ public class GUI extends Application {
         // Use this to call JavaFX's launch command from another file that does not
         // extend Application
         launch();
+    }
+    public static void setDisplaySceneBackground(Color color){
+        //Use this data here.
     }
 
 }

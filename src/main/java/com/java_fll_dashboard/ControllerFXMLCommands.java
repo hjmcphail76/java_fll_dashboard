@@ -5,6 +5,7 @@ import java.io.IOException;
 import javafx.fxml.FXML;
 import javafx.scene.control.ColorPicker;
 import javafx.scene.control.Slider;
+import javafx.scene.paint.Color;
 
 public class ControllerFXMLCommands {
     private TimerModule timerModule;
@@ -70,6 +71,12 @@ public class ControllerFXMLCommands {
 
     }
 
+    @FXML
+    private void setBackgroundColor(){
+        System.out.println(getColorPickerValue());
+        GUI.setDisplaySceneBackground(getColorPickerValue());
+    }
+
     // Retrive values from elements on the "Controller" window:
 
     public static ControllerFXMLCommands getInstance() {
@@ -90,12 +97,14 @@ public class ControllerFXMLCommands {
         return 0;
     }
 
-    @SuppressWarnings("unused")
-    public String getColorPickerValue() {
+
+    public Color getColorPickerValue() {
         if (backgroundColorPicker != null) {
-            return backgroundColorPicker.getValue().toString();
+            return backgroundColorPicker.getValue();
         }
-        return "#FFFFFF";
+        return Color.WHITE;
     }
+
+
 
 }
